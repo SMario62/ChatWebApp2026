@@ -56,6 +56,24 @@
             padding: 20px;
         }
 
+        #signupScreen {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        #forgotPasswordScreen {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
         .login-card {
             background: white;
             padding: 40px 30px;
@@ -163,6 +181,20 @@
             padding: 20px;
         }
 
+        #addContactScreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
         .settings-modal {
             background: white;
             padding: 30px;
@@ -192,6 +224,171 @@
         #chatScreen {
             display: none;
             height: 100vh;
+            flex-direction: row;
+        }
+
+        .users-sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.dark-mode .users-sidebar {
+            background: #2f3136;
+            border-right: 1px solid #202225;
+        }
+
+        body.light-mode .users-sidebar {
+            background: #f7fafc;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .sidebar-header {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 600;
+        }
+
+        body.dark-mode .sidebar-header {
+            border-bottom: 1px solid #202225;
+            color: #dcddde;
+        }
+
+        body.light-mode .sidebar-header {
+            border-bottom: 1px solid #e2e8f0;
+            color: #2d3748;
+        }
+
+        .chat-option {
+            padding: 12px 15px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.8);
+            transition: background 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .chat-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-option.active {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: white;
+            font-weight: 600;
+        }
+
+        body.dark-mode .chat-option {
+            color: #b9bbbe;
+        }
+
+        body.dark-mode .chat-option:hover {
+            background: #40444b;
+        }
+
+        body.dark-mode .chat-option.active {
+            background: #40444b;
+            border-left-color: #5865f2;
+            color: white;
+        }
+
+        body.light-mode .chat-option {
+            color: #4a5568;
+        }
+
+        body.light-mode .chat-option:hover {
+            background: #e2e8f0;
+        }
+
+        body.light-mode .chat-option.active {
+            background: #cbd5e0;
+            border-left-color: #667eea;
+            color: #2d3748;
+        }
+
+        .users-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .user-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s;
+            user-select: none;
+            position: relative;
+        }
+
+        .user-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .user-item:hover .remove-contact {
+            opacity: 1;
+        }
+
+        .remove-contact {
+            opacity: 0;
+            margin-left: auto;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .remove-contact:hover {
+            background: #c0392b;
+        }
+
+        body.dark-mode .user-item {
+            color: #b9bbbe;
+        }
+
+        body.dark-mode .user-item:hover {
+            background: #40444b;
+        }
+
+        body.light-mode .user-item {
+            color: #4a5568;
+        }
+
+        body.light-mode .user-item:hover {
+            background: #e2e8f0;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .chat-container {
+            flex: 1;
+            display: flex;
             flex-direction: column;
         }
 
@@ -202,6 +399,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        body.dark-mode .chat-header {
+            background: #36393f;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        body.light-mode .chat-header {
+            background: white;
         }
 
         .chat-header-left {
@@ -220,9 +426,25 @@
             font-size: 20px;
         }
 
+        body.dark-mode .chat-header h2 {
+            color: #dcddde;
+        }
+
+        body.light-mode .chat-header h2 {
+            color: #2d3748;
+        }
+
         .user-info {
             font-size: 14px;
             color: #666;
+        }
+
+        body.dark-mode .user-info {
+            color: #b9bbbe;
+        }
+
+        body.light-mode .user-info {
+            color: #718096;
         }
 
         .logout-btn {
@@ -254,6 +476,12 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+        }
+
+        /* Add this to keep messages at bottom */
+        .messages-container::before {
+            content: '';
+            flex-grow: 1;
         }
 
         .message {
@@ -364,6 +592,19 @@
             .message {
                 max-width: 85%;
             }
+            
+            .users-sidebar {
+                width: 200px;
+            }
+            
+            .chat-header h2 {
+                font-size: 16px;
+            }
+            
+            .settings-btn, .logout-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -383,30 +624,97 @@
                 <input type="password" id="passwordInput" name="password" autocomplete="current-password" placeholder="Enter password" onkeypress="handleLoginKeyPress(event)">
             </div>
             <button class="btn" onclick="login()">Sign In</button>
-            <a href="#" class="forgot-password" onclick="forgotPassword(event)">Forgot Password?</a>
-            <button class="btn btn-secondary" onclick="signup()">Create Account</button>
+            <a href="#" class="forgot-password" onclick="showForgotPasswordScreen(event)">Forgot Password?</a>
+            <p style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
+                Don't have an account? 
+                <a href="#" style="color: #667eea; font-weight: 600; text-decoration: none;" onclick="showSignupScreen(event)">Create one</a>
+            </p>
             <div class="error-msg" id="errorMsg"></div>
+        </div>
+    </div>
+
+    <!-- Signup Screen -->
+    <div id="signupScreen">
+        <div class="login-card">
+            <h1>💬 Create Account</h1>
+            <p>Join the chat</p>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="signupUsernameInput" placeholder="Choose a username">
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="signupEmailInput" name="email" autocomplete="email" placeholder="your@email.com">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="signupPasswordInput" name="new-password" autocomplete="new-password" placeholder="Create password (min 6 characters)" onkeypress="handleSignupKeyPress(event)">
+            </div>
+            <button class="btn" onclick="signup()">Create Account</button>
+            <p style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
+                Already have an account? 
+                <a href="#" style="color: #667eea; font-weight: 600; text-decoration: none;" onclick="showLoginScreen(event)">Sign in</a>
+            </p>
+            <div class="error-msg" id="signupErrorMsg"></div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Screen -->
+    <div id="forgotPasswordScreen">
+        <div class="login-card">
+            <h1>🔑 Reset Password</h1>
+            <p>Enter your email to receive a reset link</p>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="forgotEmailInput" placeholder="your@email.com" onkeypress="handleForgotPasswordKeyPress(event)">
+            </div>
+            <button class="btn" onclick="sendPasswordReset()">Send Reset Link</button>
+            <p style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
+                Remember your password? 
+                <a href="#" style="color: #667eea; font-weight: 600; text-decoration: none;" onclick="showLoginScreen(event)">Sign in</a>
+            </p>
+            <div class="error-msg" id="forgotPasswordErrorMsg"></div>
         </div>
     </div>
 
     <!-- Chat Screen -->
     <div id="chatScreen">
-        <div class="chat-header">
-            <div class="chat-header-left">
-                <div>
-                    <h2>Chat Room</h2>
-                    <div class="user-info" id="userEmail"></div>
-                </div>
+        <!-- Users Sidebar -->
+        <div class="users-sidebar">
+            <div class="sidebar-header">Chats</div>
+            <div class="chat-option active" onclick="switchToGlobalChat()">
+                # Global Chat
             </div>
-            <div class="chat-header-right">
-                <button class="settings-btn" onclick="openSettings()">Settings</button>
-                <button class="logout-btn" onclick="logout()">Logout</button>
+            <div class="sidebar-header" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+                <span>Direct Messages</span>
+                <button onclick="showAddContactModal()" style="background: none; border: none; color: rgba(255,255,255,0.8); font-size: 20px; cursor: pointer; padding: 0 5px;">+</button>
+            </div>
+            <div class="users-list" id="usersList">
+                <!-- Contacts will be populated here -->
             </div>
         </div>
-        <div class="messages-container" id="messagesContainer"></div>
-        <div class="input-container">
-            <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-            <button id="sendBtn" onclick="sendMessage()">Send</button>
+
+        <!-- Main Chat Container -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <div>
+                        <h2 id="chatTitle">Global Chat</h2>
+                        <div class="user-info" id="userEmail"></div>
+                    </div>
+                </div>
+                <div class="chat-header-right">
+                    <button class="settings-btn" onclick="openSettings()">Settings</button>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+            <div class="messages-container" id="messagesContainer"></div>
+            <div class="input-container">
+                <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+                <button id="sendBtn" onclick="sendMessage()">Send</button>
+            </div>
         </div>
     </div>
 
@@ -436,6 +744,23 @@
         </div>
     </div>
 
+    <!-- Add Contact Screen -->
+    <div id="addContactScreen">
+        <div class="settings-modal">
+            <h2>➕ Add Contact</h2>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="contactEmailInput" placeholder="friend@example.com">
+            </div>
+            <p style="font-size: 13px; color: #666; margin-top: -10px; margin-bottom: 20px;">Enter the email address of the person you want to message.</p>
+            
+            <div class="settings-actions">
+                <button class="btn btn-secondary" onclick="closeAddContact()">Cancel</button>
+                <button class="btn" onclick="addContact()">Add Contact</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
@@ -461,6 +786,16 @@
 
         let currentUser = null;
         let messagesListener = null;
+        let currentChatType = 'global'; // 'global' or 'dm'
+        let currentDmUserId = null;
+        
+        // Rate limiting
+        let loginAttempts = 0;
+        let loginAttemptsTimeout = null;
+        let signupAttempts = 0;
+        let signupAttemptsTimeout = null;
+        let passwordResetAttempts = 0;
+        let passwordResetAttemptsTimeout = null;
 
         // Check authentication state
         auth.onAuthStateChanged(user => {
@@ -469,7 +804,10 @@
                 showChatScreen();
                 loadMessages();
             } else {
-                showLoginScreen();
+                document.getElementById('loginScreen').style.display = 'flex';
+                document.getElementById('signupScreen').style.display = 'none';
+                document.getElementById('forgotPasswordScreen').style.display = 'none';
+                document.getElementById('chatScreen').style.display = 'none';
                 // Clean up listener when logging out
                 if (messagesListener) {
                     database.ref('messages').off('child_added', messagesListener);
@@ -478,26 +816,91 @@
             }
         });
 
-        function showLoginScreen() {
+        function showSignupScreen(event) {
+            event.preventDefault();
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('signupScreen').style.display = 'flex';
+            document.getElementById('forgotPasswordScreen').style.display = 'none';
+        }
+
+        function showLoginScreen(event) {
+            event.preventDefault();
             document.getElementById('loginScreen').style.display = 'flex';
-            document.getElementById('chatScreen').style.display = 'none';
+            document.getElementById('signupScreen').style.display = 'none';
+            document.getElementById('forgotPasswordScreen').style.display = 'none';
+        }
+
+        function showForgotPasswordScreen(event) {
+            event.preventDefault();
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('signupScreen').style.display = 'none';
+            document.getElementById('forgotPasswordScreen').style.display = 'flex';
         }
 
         function showChatScreen() {
             document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('signupScreen').style.display = 'none';
             document.getElementById('chatScreen').style.display = 'flex';
             document.getElementById('userEmail').textContent = currentUser.email;
+            
+            // Register/update user in database
+            database.ref('users/' + currentUser.uid).once('value', snapshot => {
+                if (!snapshot.exists()) {
+                    // New user - create profile
+                    database.ref('users/' + currentUser.uid).set({
+                        email: currentUser.email,
+                        displayName: currentUser.email.split('@')[0],
+                        theme: 'default'
+                    });
+                } else {
+                    // Existing user - just update email in case it changed
+                    database.ref('users/' + currentUser.uid + '/email').set(currentUser.email);
+                }
+            });
             
             // Load and apply user's theme
             database.ref('users/' + currentUser.uid + '/theme').once('value', snapshot => {
                 const theme = snapshot.val() || 'default';
                 applyTheme(theme);
             });
+            
+            // Load users for DM list
+            loadUsers();
+            
+            // Start with global chat
+            switchToGlobalChat();
         }
 
-        function showError(message) {
-            const errorMsg = document.getElementById('errorMsg');
-            errorMsg.textContent = message;
+        function showError(message, isSignup = false, isForgotPassword = false) {
+            let errorMsg;
+            if (isForgotPassword) {
+                errorMsg = document.getElementById('forgotPasswordErrorMsg');
+            } else if (isSignup) {
+                errorMsg = document.getElementById('signupErrorMsg');
+            } else {
+                errorMsg = document.getElementById('errorMsg');
+            }
+            
+            // Clean up Firebase error messages to show user-friendly text
+            let cleanMessage = message;
+            if (message.includes('auth/user-not-found')) {
+                cleanMessage = 'No account found with this email';
+            } else if (message.includes('auth/wrong-password')) {
+                cleanMessage = 'Incorrect password';
+            } else if (message.includes('auth/email-already-in-use')) {
+                cleanMessage = 'This email is already registered';
+            } else if (message.includes('auth/invalid-email')) {
+                cleanMessage = 'Invalid email address';
+            } else if (message.includes('auth/weak-password')) {
+                cleanMessage = 'Password is too weak';
+            } else if (message.includes('auth/too-many-requests')) {
+                cleanMessage = 'Too many attempts. Please try again later';
+            } else if (message.includes('Firebase:')) {
+                // Remove "Firebase: " prefix from other errors
+                cleanMessage = message.replace(/Firebase:\s*/i, '').replace(/\(auth\/.*?\)\.?/g, '').trim();
+            }
+            
+            errorMsg.textContent = cleanMessage;
             errorMsg.style.display = 'block';
             setTimeout(() => {
                 errorMsg.style.display = 'none';
@@ -505,6 +908,12 @@
         }
 
         async function login() {
+            // Rate limiting: max 5 attempts per minute
+            if (loginAttempts >= 5) {
+                showError('Too many login attempts. Please wait a minute before trying again.');
+                return;
+            }
+            
             const email = document.getElementById('emailInput').value;
             const password = document.getElementById('passwordInput').value;
 
@@ -513,8 +922,19 @@
                 return;
             }
 
+            // Increment attempts
+            loginAttempts++;
+            
+            // Reset counter after 60 seconds
+            if (loginAttemptsTimeout) clearTimeout(loginAttemptsTimeout);
+            loginAttemptsTimeout = setTimeout(() => {
+                loginAttempts = 0;
+            }, 60000);
+
             try {
                 await auth.signInWithEmailAndPassword(email, password);
+                // Reset on success
+                loginAttempts = 0;
             } catch (error) {
                 showError(error.message);
             }
@@ -527,46 +947,263 @@
         }
 
         async function signup() {
-            const email = document.getElementById('emailInput').value;
-            const password = document.getElementById('passwordInput').value;
+            // Rate limiting: max 3 signups per 5 minutes
+            if (signupAttempts >= 3) {
+                showError('Too many signup attempts. Please wait a few minutes before trying again.', true);
+                return;
+            }
+            
+            const username = document.getElementById('signupUsernameInput').value.trim();
+            const email = document.getElementById('signupEmailInput').value.trim();
+            const password = document.getElementById('signupPasswordInput').value;
+
+            if (!username) {
+                showError('Please enter a username', true);
+                return;
+            }
 
             if (!email || !password) {
-                showError('Please enter email and password');
+                showError('Please enter email and password', true);
                 return;
             }
 
             if (password.length < 6) {
-                showError('Password must be at least 6 characters');
+                showError('Password must be at least 6 characters', true);
                 return;
             }
 
+            // Increment attempts
+            signupAttempts++;
+            
+            // Reset counter after 5 minutes
+            if (signupAttemptsTimeout) clearTimeout(signupAttemptsTimeout);
+            signupAttemptsTimeout = setTimeout(() => {
+                signupAttempts = 0;
+            }, 300000);
+
             try {
-                await auth.createUserWithEmailAndPassword(email, password);
-                showError('Account created! Signing you in...');
+                // Create account
+                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                
+                // Set username as display name in database
+                await database.ref('users/' + userCredential.user.uid).set({
+                    email: email,
+                    displayName: username,
+                    theme: 'default'
+                });
+                
+                // Reset on success
+                signupAttempts = 0;
+                showError('Account created! Signing you in...', true);
             } catch (error) {
-                showError(error.message);
+                showError(error.message, true);
             }
         }
 
-        async function forgotPassword(event) {
-            event.preventDefault();
-            const email = document.getElementById('emailInput').value;
+        function handleSignupKeyPress(event) {
+            if (event.key === 'Enter') {
+                signup();
+            }
+        }
+
+        function handleForgotPasswordKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendPasswordReset();
+            }
+        }
+
+        async function sendPasswordReset() {
+            // Rate limiting: max 3 reset emails per 10 minutes
+            if (passwordResetAttempts >= 3) {
+                showError('Too many reset attempts. Please wait 10 minutes before trying again.', false, true);
+                return;
+            }
+            
+            const email = document.getElementById('forgotEmailInput').value.trim();
 
             if (!email) {
-                showError('Please enter your email address');
+                showError('Please enter your email address', false, true);
                 return;
             }
 
+            // Increment attempts
+            passwordResetAttempts++;
+            
+            // Reset counter after 10 minutes
+            if (passwordResetAttemptsTimeout) clearTimeout(passwordResetAttemptsTimeout);
+            passwordResetAttemptsTimeout = setTimeout(() => {
+                passwordResetAttempts = 0;
+            }, 600000);
+
             try {
                 await auth.sendPasswordResetEmail(email);
-                showError('Password reset email sent! Check your inbox.');
+                showError('Password reset email sent! Check your inbox.', false, true);
+                setTimeout(() => {
+                    showLoginScreen(new Event('click'));
+                }, 2000);
             } catch (error) {
-                showError(error.message);
+                showError(error.message, false, true);
             }
         }
 
         function logout() {
             auth.signOut();
+        }
+
+        function loadUsers() {
+            const usersList = document.getElementById('usersList');
+            
+            // Load user's contacts list
+            database.ref('users/' + currentUser.uid + '/contacts').on('value', snapshot => {
+                usersList.innerHTML = '';
+                
+                if (!snapshot.exists()) {
+                    usersList.innerHTML = '<div style="padding: 15px; color: rgba(255,255,255,0.5); font-size: 13px;">No contacts yet<br>Click + to add</div>';
+                    return;
+                }
+                
+                let contactCount = 0;
+                snapshot.forEach(childSnapshot => {
+                    const contactId = childSnapshot.key;
+                    contactCount++;
+                    
+                    // Get contact's display name
+                    database.ref('users/' + contactId).once('value', userSnapshot => {
+                        const userData = userSnapshot.val();
+                        if (!userData) return;
+                        
+                        const userItem = document.createElement('div');
+                        userItem.className = 'user-item';
+                        
+                        const displayName = userData.displayName || userData.email?.split('@')[0] || 'Unknown';
+                        const initial = displayName.charAt(0).toUpperCase();
+                        
+                        userItem.innerHTML = `
+                            <div class="user-avatar">${initial}</div>
+                            <div style="flex: 1;">${displayName}</div>
+                            <button class="remove-contact" onclick="event.stopPropagation(); removeContact('${contactId}', '${displayName}')">×</button>
+                        `;
+                        
+                        // Add click handler for opening DM (but not on remove button)
+                        userItem.addEventListener('click', (e) => {
+                            if (!e.target.classList.contains('remove-contact')) {
+                                openDM(contactId, displayName);
+                            }
+                        });
+                        
+                        usersList.appendChild(userItem);
+                    });
+                });
+            });
+        }
+
+        function showAddContactModal() {
+            document.getElementById('addContactScreen').style.display = 'flex';
+            document.getElementById('contactEmailInput').value = '';
+        }
+
+        function closeAddContact() {
+            document.getElementById('addContactScreen').style.display = 'none';
+        }
+
+        async function addContact() {
+            const email = document.getElementById('contactEmailInput').value.trim().toLowerCase();
+            
+            if (!email) {
+                alert('Please enter an email address');
+                return;
+            }
+            
+            if (email === currentUser.email.toLowerCase()) {
+                alert("You can't add yourself as a contact");
+                return;
+            }
+            
+            try {
+                // Find user by email
+                const usersSnapshot = await database.ref('users').orderByChild('email').equalTo(email).once('value');
+                
+                if (!usersSnapshot.exists()) {
+                    alert('No user found with that email address. Make sure they have created an account.');
+                    return;
+                }
+                
+                // Get the user ID
+                let contactUserId = null;
+                usersSnapshot.forEach(childSnapshot => {
+                    contactUserId = childSnapshot.key;
+                });
+                
+                if (!contactUserId) {
+                    alert('Error finding user');
+                    return;
+                }
+                
+                // Check if already a contact
+                const existingContact = await database.ref('users/' + currentUser.uid + '/contacts/' + contactUserId).once('value');
+                if (existingContact.exists()) {
+                    alert('This user is already in your contacts');
+                    return;
+                }
+                
+                // Add to both users' contact lists
+                await database.ref('users/' + currentUser.uid + '/contacts/' + contactUserId).set(true);
+                await database.ref('users/' + contactUserId + '/contacts/' + currentUser.uid).set(true);
+                
+                closeAddContact();
+                alert('Contact added successfully!');
+            } catch (error) {
+                alert('Error adding contact: ' + error.message);
+            }
+        }
+
+        async function removeContact(contactId, displayName) {
+            if (!confirm(`Remove ${displayName} from your contacts?`)) {
+                return;
+            }
+            
+            try {
+                // Remove from both users' contact lists
+                await database.ref('users/' + currentUser.uid + '/contacts/' + contactId).remove();
+                await database.ref('users/' + contactId + '/contacts/' + currentUser.uid).remove();
+                
+                // If currently viewing this DM, switch back to global chat
+                if (currentChatType === 'dm' && currentDmUserId === contactId) {
+                    switchToGlobalChat();
+                }
+                
+                alert('Contact removed');
+            } catch (error) {
+                alert('Error removing contact: ' + error.message);
+            }
+        }
+
+        function switchToGlobalChat() {
+            currentChatType = 'global';
+            currentDmUserId = null;
+            document.getElementById('chatTitle').textContent = 'Global Chat';
+            
+            // Update active state
+            document.querySelectorAll('.chat-option').forEach(el => el.classList.remove('active'));
+            document.querySelector('.chat-option').classList.add('active');
+            
+            loadMessages();
+        }
+
+        function openDM(userId, displayName) {
+            currentChatType = 'dm';
+            currentDmUserId = userId;
+            document.getElementById('chatTitle').textContent = displayName || 'Direct Message';
+            
+            // Update active state
+            document.querySelectorAll('.chat-option').forEach(el => el.classList.remove('active'));
+            
+            loadMessages();
+        }
+
+        function getDmChatId(userId1, userId2) {
+            // Create consistent chat ID regardless of who initiated
+            return userId1 < userId2 ? `${userId1}_${userId2}` : `${userId2}_${userId1}`;
         }
 
         function openSettings() {
@@ -629,11 +1266,23 @@
         }
 
         function loadMessages() {
-            const messagesRef = database.ref('messages');
+            let messagesRef;
+            
+            if (currentChatType === 'global') {
+                messagesRef = database.ref('messages');
+            } else {
+                const chatId = getDmChatId(currentUser.uid, currentDmUserId);
+                messagesRef = database.ref('dms/' + chatId);
+            }
             
             // Remove previous listener if it exists
             if (messagesListener) {
-                messagesRef.off('child_added', messagesListener);
+                if (currentChatType === 'global') {
+                    database.ref('messages').off('child_added', messagesListener);
+                } else {
+                    // Remove from all possible DM paths
+                    database.ref('dms').off('child_added', messagesListener);
+                }
             }
             
             // Clear existing messages
@@ -669,10 +1318,14 @@
                     <div class="message-text">${escapeHtml(message.text)}</div>
                     <div class="message-time">${time}</div>
                 `;
+                
+                // Scroll to bottom after message is rendered
+                setTimeout(() => {
+                    container.scrollTop = container.scrollHeight;
+                }, 0);
             });
             
             container.appendChild(messageDiv);
-            container.scrollTop = container.scrollHeight;
         }
 
         function sendMessage() {
@@ -685,7 +1338,14 @@
             database.ref('users/' + currentUser.uid + '/displayName').once('value', snapshot => {
                 const displayName = snapshot.val() || currentUser.email.split('@')[0];
                 
-                const messagesRef = database.ref('messages');
+                let messagesRef;
+                if (currentChatType === 'global') {
+                    messagesRef = database.ref('messages');
+                } else {
+                    const chatId = getDmChatId(currentUser.uid, currentDmUserId);
+                    messagesRef = database.ref('dms/' + chatId);
+                }
+                
                 messagesRef.push({
                     text: text,
                     userId: currentUser.uid,
